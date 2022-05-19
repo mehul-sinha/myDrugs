@@ -8,6 +8,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="main.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </head>
@@ -47,75 +48,11 @@
                     </li>
                 </ul>
                 <div class="mx-2">
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Log In</button>
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">Sign UP</button>
+                  <p>Logged in</p>
                 </div>
             </div>
         </div>
     </nav>
-
-    <!--Log In Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login to <p id="head" class="d-sm-inline-block">myDrugs</p></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="./login.php" method="post">
-          <div class="form-group my-2">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-          </div>
-          <div class="form-group my-2">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass">
-          </div>
-          <button type="submit" class="btn btn-primary my-2">Log in</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Sign Up Modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signupModalLabel">sign up for <p id="head" class="d-sm-inline-block">myDrugs</p></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> 
-      <div class="modal-body">
-      <form action="./signup.php" method="post">
-        <div class="form-group my-2">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
-        </div>
-        <div class="form-group my-2">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group my-2">
-          <label for="cexampleInputPassword1">Confirm Password</label>
-          <input type="password" class="form-control" id="cexampleInputPassword1" placeholder="Password" name="password">
-        </div>
-        <div class="form-group form-check my-2">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
-        </div>
-        <button type="submit" class="btn btn-primary my-2">Create Account</button>
-      </form>
-    </div>
-      </div>
-    </div>
-  </div>
-</div>
 
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -138,6 +75,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 
 <?php
 
@@ -162,7 +100,7 @@
                   <strong class="d-inline-block mb-2 text-danger"><?php echo 'Rs'.' '.$data['price']??''; ?></strong>
                   <div class="mb-1 text-muted">Dosage</div>
                   <p class="card-text mb-auto"><?php echo $data['description']??''; ?></p>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">BUY</button>
+                  <button type="button" class="btn btn-success"><a href="./checkout.php?id=<?php echo $data['id']?>" class="b">BUY</a></button>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                   <img class="bd-placeholder-img" width="200" height="250" src="image/<?php echo $data['img'].'.jpeg' ?>" alt="">
@@ -181,7 +119,7 @@
                   <strong class="d-inline-block mb-2 text-danger"><?php echo 'Rs'.' '.$data['price']??''; ?></strong>
                   <div class="mb-1 text-muted">Dosage</div>
                   <p class="card-text mb-auto"><?php echo $data['description']??''; ?></p>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">BUY</button>
+                  <button type="button" class="btn btn-success"><a href="./checkout.php?id=<?php echo $data['id']?>" class="b">BUY</a></button>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                 <img class="bd-placeholder-img" width="200" height="250" src="image/<?php echo $data['img'].'.jpeg' ?>" alt="">
@@ -195,7 +133,6 @@
 }
 
 }?>
-
 
 <!-- Optional JavaScript; choose one of the two! -->
 
